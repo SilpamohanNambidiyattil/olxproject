@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+
+{%block title_block%}
+<title>Vehicle Details</title>
+{%endblock%}
+
+{%block body_block%}
+<h1 class="text text-center mt-5">Vehicle Details</h1>
+<div class="container">
+  <div class="row mt-5">
+      <div class="col-4"></div>
+      <div class="col-4">
+          <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                {%if vehicle.image %}
+                  <img src="{{vehicle.image.url}}" alt="" width="100%">
+                {%endif%}
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{vehicle.id}}</li>
+                <li class="list-group-item">{{vehicle.vehicle_name}}</li>
+                <li class="list-group-item">{{vehicle.vehicle_number}}</li>
+                <li class="list-group-item">{{vehicle.vehicle_model}}</li>
+                <li class="list-group-item">{{vehicle.owner_name}}</li>
+                <li class="list-group-item">{{vehicle.km_runs}}</li>
+              </ul>
+            </div>
+                  
+      </div>
+      <div class="col-4"></div>
+  </div>
+</div>
+{%endblock%}

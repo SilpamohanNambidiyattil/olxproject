@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+
+{%block title_block%}
+<title>Vehicle List</title>
+{%endblock%}
+
+{%block body_block%}
+<h1 class="text text-center mt-5">List of Vehicles</h1>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <table class="table table-striped table-dark p-3">
+                <tr>
+                    <td>Vehicle_Name</td>
+                    <td>Vehicle_Number</td>
+                    <td>Vehicle_Model</td>
+                    <td>Owner_Name</td>
+                    <td>Km_Runs</td>
+                    <td>Actions</td>
+                </tr>
+                {%for vehicle in vehicles%}
+                    <tr>
+                        <td>{{vehicle.vehicle_name}}</td>
+                        <td>{{vehicle.vehicle_number}}</td>
+                        <td>{{vehicle.vehicle_model}}</td>
+                        <td>{{vehicle.owner_name}}</td>
+                        <td>{{vehicle.km_runs}}</td>
+                        <td>
+                            <a href="{%url 'vehicle-detail' vehicle.id%}"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{%url 'vehicle-edit' vehicle.id%}"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{%url 'vehicle-remove' vehicle.id%}"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+{%endblock%}
